@@ -1,0 +1,16 @@
+# Python
+venv/
+__pycache__/
+*.pyc
+
+# Node / JavaScript (for later)
+node_modules/
+dist/
+build/
+.npm
+
+# IDE / OS specific
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
