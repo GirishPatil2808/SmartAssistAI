@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Page for SmartAssist</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            font-family: sans-serif;
+            padding: 2rem;
+            line-height: 1.6;
+            height: 200vh; /* Make page long for scroll testing */
+        }
+    </style>
+</head>
+<body>
+    <h1>My Test Website</h1>
+    <p>This page is for testing the SmartAssist.AI widget. Click the floating icon to open the panel and drag it around the screen.</p>
+
+    <div id="smart-assist-widget-container">
+        <div class="widget-panel" id="widget-panel">
+            <div class="panel-header">
+                SmartAssist.AI
+                <button class="close-btn" id="close-btn">&times;</button>
+            </div>
+            <div class="panel-body">
+                <p>Selected text will appear here later.</p>
+                <div class="action-buttons">
+                    <button>Improve</button>
+                    <button>Explain</button>
+                </div>
+            </div>
+        </div>
+        <button class="widget-trigger-button" id="widget-trigger">
+            🧠
+        </button>
+    </div>
+    <script src="widget.js" defer></script>
+</body>
+</html>
