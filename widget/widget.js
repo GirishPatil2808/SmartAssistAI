@@ -4,9 +4,12 @@ document.addEventListener('DOMContentLoaded', () => {
     const widgetPanel = document.getElementById('widget-panel');
     const closeButton = document.getElementById('close-btn');
 
+    // --- NEW: Get a reference to the action buttons ---
+    const improveButton = document.querySelector('.action-buttons button'); // Targets the first button
+
     // --- 1. Toggle Panel Visibility ---
     triggerButton.addEventListener('click', (e) => {
-        e.stopPropagation(); // Prevent click from bubbling to document
+        e.stopPropagation();
         widgetPanel.classList.toggle('show');
     });
 
@@ -14,7 +17,34 @@ document.addEventListener('DOMContentLoaded', () => {
         widgetPanel.classList.remove('show');
     });
 
-    // --- 2. Make the Widget Draggable ---
+    // --- NEW: Add click listener to the "Improve" button ---
+    improveButton.addEventListener('click', () => {
+        console.log('Improve button clicked. Sending data to backend...');
+        
+        const testData = {
+            text: 'Hello from the widget!'
+        };
+
+        // Use the fetch API to send data to our backend
+        fetch('http://127.0.0.1:8000/api/process-text', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(testData),
+        })
+        .then(response => response.json())
+        .then(data => {
+            console.log('Success! Backend response:', data);
+            alert(`Backend replied: "${data.reply}"`);
+        })
+        .catch((error) => {
+            console.error('Error:', error);
+            alert('Failed to connect to the backend.');
+        });
+    });
+
+    // --- 2. Make the Widget Draggable (Code is unchanged) ---
     let isDragging = false;
     let offsetX, offsetY;
 
