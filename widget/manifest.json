@@ -4,13 +4,19 @@
   "version": "1.0",
   "description": "A proactive AI assistant for any website.",
   "permissions": [
-    "activeTab",
     "storage"
   ],
- "content_scripts": [
-  {
-    "matches": ["<all_urls>"],
-    "js": ["widget.js"]
-  }
-]
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "css": ["widget.css"],
+      "js": ["widget.js"]
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": ["widget.html"],
+      "matches": ["<all_urls>"]
+    }
+  ]
 }
