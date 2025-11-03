@@ -7,11 +7,10 @@
     "activeTab",
     "storage"
   ],
-  "content_scripts": [
-    {
-      "matches": ["<all_urls>"],
-      "css": ["style.css"],
-      "js": ["widget.js"]
-    }
-  ]
+ "content_scripts": [
+  {
+    "matches": ["<all_urls>"],
+    "js": ["widget.js"]
+  }
+]
 }
