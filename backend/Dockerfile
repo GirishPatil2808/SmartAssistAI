@@ -1,18 +1,17 @@
-# Use an official lightweight Python image
+# 1. Start with an official Python image
 FROM python:3.11-slim
 
-# Set the working directory inside the container
+# 2. Set the working directory
 WORKDIR /app
 
-# Copy the requirements file first to cache packages
+# 3. Copy the list of packages
 COPY requirements.txt .
 
-# Install the Python packages
+# 4. Install all the packages
 RUN pip install -r requirements.txt
 
-# Copy all the backend code (main.py, .env, etc.) into the container
+# 5. Copy all the backend code into the container
 COPY . .
 
-# Tell Docker what command to run when the container starts
-# We use 0.0.0.0 to make it accessible outside the container
+# 6. Tell Docker what command to run
 CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8000"]
